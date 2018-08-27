@@ -20,18 +20,18 @@
 		$pass=test_input($_POST['pass1']);
 		$pass2=test_input($_POST['pass2']);
 		if($pass == $pass2){
-		$pass=md5($pass);
-		$sql = "INSERT INTO `faculty`(`empid`, `name`, `department`, `PASS`) VALUES (?,?,?,?)";
-			$stmt=$conn->prepare($sql);
-			$stmt->bind_param("ssss",$eid,$name,$dept,$pass);
-			$stmt->execute();
-			if($stmt > 0){
-			?>
-			<script>alert("Registered Successfull");</script>
-			<?php
-		}else{
-			$error_pass = "Password does not match ";
-		}
+			$pass=md5($pass);
+			$sql = "INSERT INTO `faculty`(`empid`, `name`, `department`, `PASS`) VALUES (?,?,?,?)";
+				$stmt=$conn->prepare($sql);
+				$stmt->bind_param("ssss",$eid,$name,$dept,$pass);
+				$stmt->execute();
+				if($stmt > 0){
+				?>
+				<script>alert("Registered Successfull");</script>
+				<?php
+			}else{
+				$error_pass = "Password does not match ";
+			}
 			$sql = "INSERT INTO `faculty`(`empid`, `name`, `department`, `PASS`) VALUES (?,?,?,?)";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param("ssss",$eid,$name,$dept,$pass);
@@ -40,7 +40,7 @@
 			?>
 			<script>alert("Registered Successfull");</script>
 			<?php
+			}
 		}
-		}
-
+	}
 ?>
