@@ -30,4 +30,5 @@
 			$error_pass = "Password does not match ";
 			}
 	}
+}
 ?>
