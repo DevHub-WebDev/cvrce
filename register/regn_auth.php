@@ -30,10 +30,9 @@
 		$sql = "INSERT INTO `employee`(`empId`, `name`, `domain`, `position`,  `pass`) VALUES (?,?,?,?,?)";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param("sssss",$eid,$name,$domain,$pos,$pass);
-			$stmt->execute();
-			if($stmt > 0){
-				?><script type="text/javascript">alert("Registered Successfully");</script><?php
-			}
+		if($stmt->execute()){
+			header("Location: ../login/adminLoginNext.php");
+		
 		}else{
 			$error_pass = "Password does not match ";
 		}
