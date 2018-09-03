@@ -35,12 +35,9 @@
 			$sql = "INSERT INTO `faculty`(`empid`, `name`, `department`, `PASS`) VALUES (?,?,?,?)";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param("ssss",$eid,$name,$dept,$pass);
-			$stmt->execute();
-			if($stmt > 0){
-			?>
-			<script>alert("Registered Successfull");</script>
-			<?php
-			}
+			if($stmt->execute())
+				header("Location: ../login/facultyLoginNext.php");
+		}
 		}
 	}
 ?>
