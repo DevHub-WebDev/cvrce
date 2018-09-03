@@ -43,10 +43,8 @@
 		$sql = "INSERT INTO `users`(`REGID`, `USERNAME`, `PASS`, `BRANCH`, `HOSTEL`, `first_name`, `last_name`, `email`, `mentor_id`, `contact`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			$stmt=$conn->prepare($sql);
 			$stmt->bind_param("ssssssssss",$regid,$username,$pass,$branch,$hostel,$fname,$lname,$email,$mentor_id,$contact);
-			$stmt->execute();
-			?>
-			<script>alert("Successfully Registered");</script>
-			<?php
+			if($stmt->execute())
+				header("Location: ../login/studentLoginNext.php");
 		}else{
 			$error_pass = "Password does not match ";
 		}
