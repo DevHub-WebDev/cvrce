@@ -1,5 +1,5 @@
 <?php
-	include('config.php');
+	include('../config.php');
 
  	$error_eid = $error_name =  $error_dept =  $error_pass =  " ";
 
