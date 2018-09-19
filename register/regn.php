@@ -1,5 +1,5 @@
 <?php
-	include('config.php');
+	include('../config.php');
 
 	$error_regn = $error_name =  $error_email =  $error_pass = $error_phno =  " ";
 
